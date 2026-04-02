@@ -1,3 +1,16 @@
+const allGenres = ["Action", "Adventure", "Animation", "Biography", "Comedy", "Crime",
+  "Documentary", "Drama", "Family", "Fantasy", "Film Noir", "History", "Horror", "Music",
+  "Musical", "Mystery", "Romance", "Sci-Fi", "Short Film", "Sport", "Superhero", "Thriller",
+  "War", "Western"];
+
+const genreOptions = document.getElementById("Genres");
+allGenres.forEach((genre)=>{
+  const genreOption = document.createElement("option");
+  genreOption.value = genre;
+  genreOption.textContent = genre;
+  genreOptions.append(genreOption)
+})
+
 function setMovie(movie) {
   for (const element of document.forms[0].elements) {
     const name = element.id;
@@ -66,8 +79,11 @@ function putMovie() {
     - Configure the function below as the onload event handler
     - Send the movie data as JSON
   */
-
+  const movie = getMovie();
+  const imdbID = new URLSearchParams(window.location.search).get("imdbID");
   const xhr = new XMLHttpRequest();
+  xhr.open("PUT", "/movies/" + imdbID);
+  xhr.setRequestHeader("Content-Type", "application/json");
   xhr.onload = function () {
     if (xhr.status == 200 || xhr.status === 204) {
       location.href = "index.html";
@@ -75,6 +91,7 @@ function putMovie() {
       alert("Saving of movie data failed. Status code was " + xhr.status);
     }
   };
+  xhr.send(JSON.stringify(movie));
 }
 
 /** Loading and setting the movie data for the movie with the passed imdbID */
@@ -85,6 +102,7 @@ xhr.open("GET", "/movies/" + imdbID);
 xhr.onload = function () {
   if (xhr.status === 200) {
     setMovie(JSON.parse(xhr.responseText));
+
   } else {
     alert(
       "Loading of movie data failed. Status was " +
@@ -96,4 +114,3 @@ xhr.onload = function () {
 };
 
 xhr.send();
-

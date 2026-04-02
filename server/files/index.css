@@ -1,41 +1,86 @@
 @import url(base.css);
 
-h1 {
-  font-size: 200%;
-  margin: 8px 0px;
+.movie-card{
+  background-color: #1f1f1f;
+  width: 300px;                   /* Card width */
+  border-radius: 12px;            /* Round corners */
+  overflow: hidden;               /* Everything that is to big for the card gets choped off */
+  margin: 10px;
+  text-align: center;
+  padding-bottom: 20px;
+  transition: all 0.2s ease;       /* hover effect */
 }
-
-img {
-  border-radius: 12px;
+.movie-card:hover{
+  transform: translateY(-5px);      /* by how many pixels the cards move when hovering over them */
+  box-shadow: 0 15px 40px black;    /* 0 -> X-axis, 15 -> Y-axis, 40 -> blur radius */
 }
-
-article {
-  background-color: lightgray;
-  border-radius: 16px;
-  padding: 16px;
-  margin: 2vw;
+.movie-card img{
+  max-width: 100%;                   /* max-width prevents overflow */
+  height: 450px;
+  object-fit: cover;
+  border-bottom: 3px solid red;      /* red line under img */
 }
-
-span {
-  margin-right: 4px;
+.movie-card h1 {
+  font-size: 1.5rem;
+  margin: 1rem;
 }
-
-.genre {
-  padding: 4px 8px;
-  border: solid black 1px;
-  border-radius: 6px;
-  background-color: darkgray;
+.movie-card h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06rem;
+  border-bottom: 2px solid #808080;
+  color: grey;
+  padding: 0.5rem;
+}
+.movie-card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0.5rem 1rem;
+  color: #d3d3d3;
+}
+.genres-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px;
+}
+.genres-tags {
+  background-color: #800000;
+  color: #d3d3d3;
+  padding: 0.25rem 0.75rem;
+  border-radius: 1.25rem;
+  font-size: 1rem;
   font-weight: bold;
+  transition: all 0.2s ease;          /* how long until hover appears and leaves */
+  cursor: default;
 }
-
-input {
-  width: 100%;
+.actors-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
-
-select {
-  width: 100%;
+.writers-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
 }
-
-textarea {
-  width: 100%;
+.directors-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+.genres-tags:hover {
+  background-color: #700000;
+  border-color: #700000;
+}
+.plot-container {
+  border-left: 1px solid yellow;
+  padding: 10px;
 }
