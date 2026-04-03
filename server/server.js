@@ -40,6 +40,10 @@ app.get('/movies/:imdbID', function (req, res) {
    - Check whether the movie sent by the client already exists 
      and continue as described in the assignment */
 app.put('/movies/:imdbID', function (req, res) {
+  if(movies[req.params.imdbID] == null) {
+    movies[req.params.imdbID] = req.body;
+    return res.sendStatus(201);
+  }
   movies[req.params.imdbID] = req.body;
   res.sendStatus(200);
 })
