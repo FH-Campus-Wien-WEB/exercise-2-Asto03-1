@@ -84,3 +84,17 @@
   border-left: 1px solid yellow;
   padding: 10px;
 }
+.edit {
+  background-color: #800000;
+  color: #d3d3d3;
+  border: none;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: all 0.2s ease;          /* how long until hover appears and leaves */
+  cursor: default;
+}
+.edit:hover {
+  background-color: #700000;
+  border-color: #700000;
+}

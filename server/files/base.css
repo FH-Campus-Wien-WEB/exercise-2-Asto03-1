@@ -7,7 +7,7 @@ body {
     display: flex;                  /* enables flex options */
     flex-direction: row;            /* How Cards are positioned */
     flex-wrap: wrap;                /* "Line breaks" vorher center*/
-    justify-content: left;          /* Positions cards on the left side*/
+    justify-content: center;        /* Positions cards in the center*/
     gap: 20px;                      /* Gaps between cards */
 }
 

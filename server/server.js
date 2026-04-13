@@ -16,11 +16,11 @@ app.use(express.static(path.join(__dirname, 'files')));
 app.get('/movies', function (req, res) {
   /* Task 1.2. Remove the line below and return the movies from
      the model as an array */
-  const movieArray = Object.values(movies);
+  const movieArray = Object.values(movies); //Object.values() grabs all values ad places it into an Array
   if (movieArray.length < 1) {
     return res.sendStatus(404);
   }
-  console.log(Array.isArray(movieArray));
+  console.log(Array.isArray(movieArray)); //i forgot to delete this
   res.send(movieArray);
 })
 

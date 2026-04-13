@@ -49,6 +49,7 @@ window.onload = function () {
 
         bodyElement.append(movieObject);
 
+        //at the end of the document, so it can load the data for the edit
         const editButton = movieObject.querySelector(".edit"); //create Element for the editButton (because of innerHTML)
         editButton.addEventListener("click", (e) => {  //event on click (similar to JavaFX)
           location.href = `edit.html?imdbID=${movie.imdbID}`;
